@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/dbrattli/aioreactive.svg?branch=master)](https://travis-ci.org/dbrattli/aioreactive)
 [![Coverage Status](https://coveralls.io/repos/github/dbrattli/aioreactive/badge.svg?branch=master)](https://coveralls.io/github/dbrattli/aioreactive?branch=master)
 
-# aioreactive - RxPY for asyncio using async and await
+# AsyncRx - RxPY for asyncio using async and await
 
-Aioreactive is [RxPY](https://github.com/ReactiveX/RxPY) for asyncio. It's an asynchronous and reactive Python library for asyncio using async and await. Aioreactive is the next version of [RxPY](https://github.com/ReactiveX/RxPY), that integrates more naturally with the Python language.
+AsyncRx is [RxPY](https://github.com/ReactiveX/RxPY) for asyncio. It's an asynchronous and reactive Python library for asyncio using async and await. AsyncRx a companion project of [RxPY](https://github.com/ReactiveX/RxPY), that integrates naturally with the Python language.
 
->aioreactive is the unification of RxPY, reactive programming with asyncio using async and await.
+>AsyncRx is the unification of RxPY, reactive programming with asyncio using async and await.
 
 ## The design goals for aioreactive:
 
-* Python 3.5+ only. We have a hard dependency on `async` and `await`.
+* Python 3.6+ only. We have a hard dependency on `async` and `await`.
 * All operators and tools are implemented as plain old functions. No methods other than Python special methods.
 * Everything is `async`. Sending values is async, subscribing to observables is async.
 * One scheduler to rule them all. Everything runs on the asyncio base event-loop.

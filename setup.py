@@ -6,17 +6,17 @@ except ImportError:
     from setuptools import setup
 
 setup(
-    name='aioreactive',
+    name='asyncrx',
     version='0.5.0',
-    description='Async/await Reactive Tools for Python 3.6+',
+    description='Async/await RxPY for Python 3.6+',
     long_description=(
-        "aioreactive is a library for asynchronous and reactive "
+        "Async RxPY is a library for asynchronous and reactive "
         "programming using asyncio, async and await"),
     author='Børge Lanes & Dag Brattli',
     author_email='dag@brattli.net',
     license='MIT License',
-    url='https://github.com/dbrattli/aioreactive',
-    download_url='https://github.com/dbrattli/aioreactive',
+    url='https://github.com/dbrattli/asyncrx',
+    download_url='https://github.com/dbrattli/asyncrx',
     zip_safe=True,
 
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -34,7 +34,7 @@ setup(
     setup_requires=['pytest-runner'],
     tests_require=['pytest', "pytest-asyncio"],
 
-    packages=['aioreactive', 'aioreactive.core', 'aioreactive.abc',
-              'aioreactive.operators', 'aioreactive.testing'],
-    package_dir={'aioreactive': 'aioreactive'}
+    packages=['asyncrx', 'asyncrx.core', 'asyncrx.core.operators',
+        'asyncrx.abc', 'asyncrx.operators', 'asyncrx.testing'],
+    package_dir={'asyncrx': 'asyncrx'}
 )

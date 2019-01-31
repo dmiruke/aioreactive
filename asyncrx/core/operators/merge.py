@@ -3,9 +3,9 @@ from asyncio.locks import BoundedSemaphore
 from typing import Dict, TypeVar
 import logging
 
-from aioreactive.core.utils import noopobserver
-from aioreactive.core import AsyncSingleStream, AsyncDisposable, AsyncCompositeDisposable
-from aioreactive.core import AsyncObservable, AsyncObserver, chain
+from asyncrx.core.utils import noopobserver
+from asyncrx.core import AsyncSingleStream, AsyncDisposable, AsyncCompositeDisposable
+from asyncrx.core import AsyncObservable, AsyncObserver, chain
 
 T = TypeVar('T')
 log = logging.getLogger(__name__)
@@ -29,7 +29,7 @@ class Merge(AsyncObservable):
 
         def __init__(self, source: AsyncObservable, max_concurrent: int) -> None:
             super().__init__()
-            self._inner_subs = {}  # type: Dict[AsyncObserver[T], AsyncSingleStream]
+            self._inner_subs: Dict[AsyncObserver[T], AsyncSingleStream] = {}
             self._sem = BoundedSemaphore(max_concurrent)
             self._is_closed = False
 
@@ -85,16 +85,3 @@ class Merge(AsyncObservable):
                 # make the inner_stream complete, and the done callback
                 # will take care of any cleanup.
                 self._observer = noopobserver
-
-
-def merge(source: AsyncObservable, max_concurrent: int=42) -> AsyncObservable:
-    """Merges a source stream of source streams.
-
-    Keyword arguments:
-    source -- source stream to merge.
-    max_concurrent -- Max number of streams to process concurrently.
-        Default value is 42. Setting this to 1 turns merge into concat.
-
-    Returns flattened source stream.
-    """
-    return Merge(source, max_concurrent)

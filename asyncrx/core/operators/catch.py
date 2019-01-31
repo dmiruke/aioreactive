@@ -50,6 +50,5 @@ class CatchException(AsyncObservable[T], Generic[T]):
             self.cancel()
 
 
-def catch_exception(iterable: Iterable[T]) -> AsyncObservable[T]:
-
+def _catch(iterable: Iterable[T]) -> AsyncObservable[T]:
     return CatchException(iterable)

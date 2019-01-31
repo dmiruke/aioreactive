@@ -1,6 +1,6 @@
 
 from asyncio import Future
-from typing import TypeVar, Generic
+from typing import TypeVar, Optional
 from abc import abstractmethod
 import logging
 from aioreactive.abc import Disposable
@@ -22,7 +22,7 @@ class AsyncObserverBase(Future, AsyncObserver[T], Disposable):
         super().__init__()
 
         self._has_value = False
-        self._last_value = None  # type: T
+        self._last_value: Optional[T] = None
 
         self._is_stopped = False
 

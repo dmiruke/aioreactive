@@ -3,7 +3,7 @@ from tkinter import *
 
 from aioreactive.core import subscribe, AsyncAnonymousObserver
 from aioreactive.core import AsyncStream
-from aioreactive.operators.pipe import delay
+from aioreactive.core import operators import delay
 
 
 async def main(loop) -> None:
