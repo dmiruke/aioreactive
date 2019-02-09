@@ -127,8 +127,8 @@ class VirtualTimeEventLoop(asyncio.AbstractEventLoop):
         """Returns True if the event loop is running."""
         return (self._thread_id is not None)
 
-    def call_later(self, delay, callback, *args):
-        timer = self.call_at(self.time() + delay, callback, *args)
+    def call_later(self, delay, callback, *args, context=None):
+        timer = self.call_at(self.time() + delay, callback, *args, context=context)
         if timer._source_traceback:
             del timer._source_traceback[-1]
         return timer
@@ -141,13 +141,13 @@ class VirtualTimeEventLoop(asyncio.AbstractEventLoop):
         timer._scheduled = True
         return timer
 
-    def call_soon(self, callback, *args):
-        handle = self._call_soon(callback, args)
+    def call_soon(self, callback, *args, context):
+        handle = self._call_soon(callback, args, context)
         if handle._source_traceback:
             del handle._source_traceback[-1]
         return handle
 
-    def _call_soon(self, callback, args):
+    def _call_soon(self, callback, *args, context=None):
         if (asyncio.iscoroutine(callback) or asyncio.iscoroutinefunction(callback)):
             raise TypeError("coroutines cannot be used with call_soon()")
         self._check_closed()

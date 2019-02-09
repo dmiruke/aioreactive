@@ -1,7 +1,7 @@
 import asyncio
 from typing import TypeVar
 
-from aioreactive import core
+from asyncrx import core
 
 T = TypeVar('T')
 

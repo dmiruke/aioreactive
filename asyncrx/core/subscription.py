@@ -3,7 +3,7 @@ import asyncio
 from typing import TypeVar, Optional
 from collections.abc import Awaitable
 
-from aioreactive.abc import AsyncDisposable
+from asyncrx.abc import AsyncDisposable
 
 from .typing import AsyncObservable, AsyncObserver
 from .observers import AsyncNoopObserver

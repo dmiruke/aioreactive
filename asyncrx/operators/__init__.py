@@ -19,13 +19,14 @@ def debounce(seconds: float) -> Callable[[AsyncObservable[T]], AsyncObservable[T
     another value before seconds has elapsed.
 
     Example:
-    partial = debounce(5) # 5 seconds
+        partial = debounce(5) # 5 seconds
 
-    Keyword arguments:
-    seconds -- Duration of the throttle period for each value
+    Args:
+        seconds: Duration of the throttle period for each value
 
-    Returns a partially applied function that takes a source stream to
-    debounce."""
+    Returns:
+        A partially applied function that takes a source stream to
+        debounce."""
 
     from asyncrx.core.operators.debounce import Debounce
     return partial(Debounce, seconds)
@@ -47,7 +48,6 @@ def map(fn: Callable) -> Callable[[AsyncObservable[T1]], AsyncObservable[T2]]:
     return partial(_map, fn)
 
 def merge(other: AsyncObservable) -> Callable[[AsyncObservable], AsyncObservable]:
-def merge(source: AsyncObservable, max_concurrent: int=42) -> AsyncObservable:
     """Merges a source stream of source streams.
 
     Keyword arguments:
@@ -57,11 +57,8 @@ def merge(source: AsyncObservable, max_concurrent: int=42) -> AsyncObservable:
 
     Returns flattened source stream.
     """
-    return Merge(source, max_concurrent)
     from asyncrx.core.operators.merge import Merge
     return partial(Merge, other)
-
-
 
 def with_latest_from(mapper: Callable, other: AsyncObservable) -> Callable[[AsyncObservable], AsyncObservable]:
     from asyncrx.core.operators.with_latest_from import with_latest_from

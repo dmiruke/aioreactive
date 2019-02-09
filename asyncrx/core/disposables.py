@@ -1,6 +1,6 @@
 from asyncio import iscoroutinefunction
 
-from aioreactive import abc
+from asyncrx import abc
 
 
 class AsyncDisposable(abc.AsyncDisposable):

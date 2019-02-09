@@ -3,7 +3,8 @@ from asyncio import Future
 from typing import TypeVar, Optional
 from abc import abstractmethod
 import logging
-from aioreactive.abc import Disposable
+
+from asyncrx.abc import Disposable
 from .typing import AsyncObserver
 
 log = logging.getLogger(__name__)

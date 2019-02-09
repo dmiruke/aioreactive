@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/dbrattli/aioreactive.svg?branch=master)](https://travis-ci.org/dbrattli/aioreactive)
 [![Coverage Status](https://coveralls.io/repos/github/dbrattli/aioreactive/badge.svg?branch=master)](https://coveralls.io/github/dbrattli/aioreactive?branch=master)
 
-# AsyncRx - RxPY for asyncio using async and await
+# Async RxPY for asyncio using async and await
 
-AsyncRx is [RxPY](https://github.com/ReactiveX/RxPY) for asyncio. It's an asynchronous and reactive Python library for asyncio using async and await. AsyncRx a companion project of [RxPY](https://github.com/ReactiveX/RxPY), that integrates naturally with the Python language.
+Async RxPY is [RxPY](https://github.com/ReactiveX/RxPY) for asyncio. It's an asynchronous and reactive Python library for asyncio using async and await. AsyncRx a companion project of [RxPY](https://github.com/ReactiveX/RxPY), that integrates naturally with the Python language.
 
 >AsyncRx is the unification of RxPY, reactive programming with asyncio using async and await.
 

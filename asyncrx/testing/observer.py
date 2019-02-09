@@ -1,7 +1,7 @@
 from typing import TypeVar
 
-from aioreactive.core.bases import AsyncObserverBase
-from aioreactive.core.utils import anoop
+from asyncrx.core.bases import AsyncObserverBase
+from asyncrx.core.utils import anoop
 
 T = TypeVar('T')
 
